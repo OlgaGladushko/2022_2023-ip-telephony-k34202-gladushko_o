@@ -59,7 +59,7 @@ exit
 ephone-dn 2
 number 002
 ```  
-Телнфоны были подключены к блоку питания в окне физического представления:  
+Телефоны были подключены к блоку питания в окне физического представления:  
 ![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/phone.jpg)  
 Работоспособность была проверена путем звонка, также в физическом представлении был введен номер другого телефона:  
 ![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/call.jpg)  
