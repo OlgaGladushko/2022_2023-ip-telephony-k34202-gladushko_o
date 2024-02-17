@@ -16,4 +16,18 @@ Date of finished: .02.2024
 Изучить рабочую среду Cisco Packet Tracer, ознакомиться с интерфейсами основных устройств, типами кабелей, научиться собирать топологию. Изучить построение сети IP-телефонии с помощью маршрутизатора, коммутатора и IP телефонов Cisco 7960 в среде Packet tracer  
 
 ## Ход работы  
-В Yandex Cloud была создана виртуальная машина Ubuntu 22: 
+### Часть 1
+В Сisco packet tracer была собрана схема соединения 4 коммутаторов и 7 ПК:  
+![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/topo1.jpg)  
+Всем ПК были назначены адреса из подсети 192.168.10.0/24:  
+![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/pc_address.jpg)  
+Для связи всех ПК не было необходимости дополнительной настройки, так как все порты были подняты автоматически. Связь была проверена пингами с ПК, подключенных к разным коммутаторам:  
+![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/ping_pc1.jpg)  
+![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/ping_pc2.jpg)  
+Как видно, все пинги прошли успешно.
+
+### Часть 2
+Далее была собрана схема соединения с роутером, коммутатором и двумя IP-телефонами:  
+![.](https://github.com/OlgaGladushko/2022_2023-ip-telephony-k34202-gladushko_o/blob/main/lab1/imgs/topo2.jpg)  
+
+
