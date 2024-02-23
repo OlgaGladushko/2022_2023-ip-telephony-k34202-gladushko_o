@@ -40,6 +40,7 @@ option 150 ip 192.168.0.1
 ```
 На роутере также был создан сервис IP-телефонии, вмещающий 10 устройств, порт маршрутизатора и количество линий командами:  
 ```
+telephony-service
 max-dn 10
 max-ephones 10
 ip source-address 192.168.0.1 port 3100
@@ -65,4 +66,83 @@ number 003
 Телефоны были подключены к блоку питания в окне физического представления. Работоспособность была проверена путем звонка, также в физическом представлении был введен номер другого телефона:  
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/call1.jpg)  
 Как видно, соединение было установлено, на экранах виднен номер телефона, с которым установлена связь.  
+### Часть 2
+Далее была собрана схема соединения как в 1 части, но с добавлением 3 PC, подключенных к телефонам:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/topo2.jpg)  
+На коммутаторе были созданы VLANы для взаимодействия коммутатора с маршрутизатором, телефонами и компьютерами командами:  
+```
+vlan 10
+name data
+exit
+vlan 20
+name voice
+exit
+vlan 30
+name router
+```
+Интерфейсы, ведущие к телефонам были переведены в режим access и подключены к VLANам для телефонов и компьютеров командами:  
+```
+interface range fa0/2-4
+switchport mode access
+switchport access vlan 10
+switchport voice vlan 20
+```  
+Интерфейс, ведущий к роутеру был переведен в режим trunk, а VLAN был включен и был выдан адрес из подсети 192.168.1.0/24 командами:  
+```
+interface vlan 30
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+interface fa0/1
+switchport mode trunk
+switchport trunk native vlan 30
+```  
+Также был задан маршрут по умолчанию на сеть 192.168.2.0 командой ```ip default-network 192.168.2.0```.  
+На роутере были созданы логические сабинтерфейсы для VLANов командами (x – номер VLAN):  
+```
+interface FastEthernet0/0.x
+encapsulation dot1Q x
+ip add 192.168.x.10 255.255.255.0
+no shutdown
+```
+Далее был наспроен DHCP для передачи голоса и данных командами:  
+```
+ip dhcp excluded-address 192.168.10.10
+ip dhcp excluded-address 192.168.20.10
+ip dhcp pool data
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.10
+exit
+ip dhcp pool voice
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.10
+option 150 ip 192.168.20.10
+```  
+После данных команд, были подключены 3 телефона, которым сразу были выданы адреса из указанной подсети:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/IP_phones.jpg)  
+Также был создан сервис IP-телефонии, вмещающий 10 устройств, порт маршрутизатора и количество линий командами:  
+```
+telephony-service
+max-dn 3
+max-ephones 3
+ip source-address 192.168.20.10 port 2000
+```
+На роутере была продолжена настройка телефонии, были выданы номера 001, 002 и 003 командами:  
+```
+ephone-dn 1
+number 001
+exit
+ephone-dn 2
+number 002
+exit
+ephone-dn 3
+number 003
+```
+В результате все устройства получили IP-адреса из заданых подсетей, а телефоны еще и номера. С роутера пинги на все устройства прошли успешно:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/ping.jpg)  
+Пинги с одного PC на другой также прошли успешно:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/ping_pc.jpg)  
+Звонки по номеру телефона тоже были успешны:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab2/imgs/call2.jpg)  
 
+### Вывод  
+В ходе лабораторной работы были собраны представленные схемы сети IP-телефонии с маршрутизатором, коммутатором и IP-телефонами, настроены устройства, в результате чего успешно установлена связь между IP-телефонами в первой части, а во второй части – еще и между компьютерами.
