@@ -44,7 +44,7 @@ exten => _XXXX,1,Dial(SIP/${EXTEN})
 После измененя файлов Asterisk был перезапущен для вступления в силу изменений командой 
 ```sudo service asterisk restart```. Статус сервиса был проверен, как видно он был успешно запущен:  
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/status.jpg)  
-Далее были установлены софтфоны Zoiper5 и MicroSIP. Так работа выполнялась на Ubuntu нужно было также установить wine, настроить и с помощью него уже установить MicroSIP.  
+Далее были установлены софтфоны Zoiper5 и MicroSIP. Так как работа выполнялась на Ubuntu нужно было также установить wine, настроить и с помощью него уже установить MicroSIP.  
 Далее софтфоны были подключены: введены указанные ранее номера и пароли, а также адрес сервера – адрес текущего хоста 127.0.0.1.  
 Настройка Zoiper5:  
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/Zoiper5.jpg)  
