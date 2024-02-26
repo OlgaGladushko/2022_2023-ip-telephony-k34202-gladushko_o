@@ -42,5 +42,16 @@ exten => _XXXX,1,Dial(SIP/${EXTEN})
 exten => _XXXX,1,Dial(SIP/${EXTEN})
 ```  
 После измененя файлов Asterisk был перезапущен для вступления в силу изменений командой 
-```sudo service asterisk restart```. Статус сервиса был проверен, как видно он был успешно запущен:
+```sudo service asterisk restart```. Статус сервиса был проверен, как видно он был успешно запущен:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/status.jpg)  
+Далее были установлены софтфоны Zoiper5 и MicroSIP. Так работа выполнялась на Ubuntu нужно было также установить wine, настроить и с помощью него уже установить MicroSIP.  
+Далее софтфоны были подключены: введены указанные ранее номера и пароли, а также адрес сервера – адрес текущего хоста 127.0.0.1.  
+Настройка Zoiper5:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/Zoiper5.jpg)  
+Настройка MicroSIP:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/MicroSIP.jpg)  
+Для проврки успешной настройки связи был совершен звонок на телефон 1000 с телефона 1001. Как видно, соединение было установлено, на экране виден номер звонящего телефона:  
+![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/call.jpg)  
 
+### Вывод  
+В ходе лабораторной работы был настроен Asterisk для локальных звонков, в результате чего успешно установлена связь между софтфонами.
