@@ -6,7 +6,7 @@ Group: K34202
 Author: Gladusko Olga  
 Lab: Lab2  
 Date of create: 22.02.2024  
-Date of finished: .02.2024  
+Date of finished: 27.02.2024  
 
 ---
 # Отчет по лабораторной работе №2  
