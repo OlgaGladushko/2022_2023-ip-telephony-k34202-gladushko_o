@@ -50,7 +50,7 @@ exten => _XXXX,1,Dial(SIP/${EXTEN})
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/Zoiper5.jpg)  
 Настройка MicroSIP:  
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/MicroSIP.jpg)  
-Для проврки успешной настройки связи был совершен звонок на телефон 1000 с телефона 1001. Как видно, соединение было установлено, на экране виден номер звонящего телефона:  
+Для проверки успешной настройки связи был совершен звонок на телефон 1000 с телефона 1001. Как видно, соединение было установлено, на экране виден номер звонящего телефона:  
 ![.](https://github.com/OlgaGladushko/2023_2024-ip-telephony-k34202-gladushko_o/blob/main/lab3/imgs/call.jpg)  
 
 ### Вывод  
